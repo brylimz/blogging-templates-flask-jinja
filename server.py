@@ -39,8 +39,9 @@ def guess_name(guess):
            f"<h3> And maybe {age()} years old "
 
 
-@app.route("/blog")
-def get_blog():
+@app.route("/blog/<num>")
+def get_blog(num):
+    print(num)
     blog_url = "https://api.npoint.io/c1bf880e51ba42a7416a"
     response = requests.get(blog_url)
     all_posts = response.json()
