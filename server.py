@@ -1,3 +1,4 @@
+import requests.utils
 from flask import Flask, render_template
 import random
 import datetime
@@ -36,6 +37,14 @@ def guess_name(guess):
     return f"<h1> Hey {guess.title()}  </h1>" \
            f"<h2> <p> I think you are {gender()} </p> </h2>" \
            f"<h3> And maybe {age()} years old "
+
+
+@app.route("/blog")
+def blog():
+    blog_url = "https://api.npoint.io/c1bf880e51ba42a7416a"
+    response = requests.get(blog_url)
+    all_posts = response.json()
+    return render_template("blog.html", posts=all_posts)
 
 
 if __name__ == "__main__":
