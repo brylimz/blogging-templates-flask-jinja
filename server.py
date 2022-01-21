@@ -33,7 +33,7 @@ def guess_name(guess):
         data2 = response2.json()["age"]
         return data2
 
-    return f"<h1> Hey {guess.capitalize()}  </h1>" \
+    return f"<h1> Hey {guess.title()}  </h1>" \
            f"<h2> <p> I think you are {gender()} </p> </h2>" \
            f"<h3> And maybe {age()} years old "
 
